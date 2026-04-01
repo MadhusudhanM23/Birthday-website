@@ -354,11 +354,11 @@ function initializeDefaultSettings() {
             { image: './image/realPhoto/1135c51b-b73a-4632-9a4a-2beea5a7ff78.jpg', content: 'Dear Chandan, you bring so much joy and happiness! 💕' },
             { image: './image/realPhoto/16f27fd6-3256-4cd8-92c6-6ca09ce308d7.jpg', content: 'Happy Birthday! Wishing you happiness and success always! ✨' },
             { image: './image/realPhoto/30ec64a9-c324-4ec5-b2b0-172bb0e4dadb.jpg', content: 'You are such an amazing and beautiful person! 🌸' },
-            { image: './image/realPhoto/351ad04c-71b6-490a-b0dd-596e1f0933f0.jpg', content: 'Happy Birthday! Wishing you a great year ahead filled with success and good moments! 💖' },
+            { image: './image/realPhoto/351ad04c-71b6-490a-b0dd-596e1f0933f0.jpg', content: 'Another year older, wiser, and closer to your dreams 💖' },
             { image: './image/realPhoto/3838a56e-d719-4158-be50-b3571c38fa27.jpg', content: 'Wishing you the most wonderful birthday ever! 🎉' },
             { image: './image/realPhoto/3dd8e155-5f8e-407a-bc89-a531f89a736c.jpg', content: 'May all your dreams come true! ⭐' },
             { image: './image/realPhoto/47017a7e-1a4d-41a6-96ad-27c015fa6b71.jpg', content: 'You deserve all the happiness! 💕' },
-            { image: './image/realPhoto/4c66b58c-9862-450c-a00c-73746511a5dc.jpg', content: 'Have the best day TL! 🥳🎂' },
+            { image: './image/realPhoto/4c66b58c-9862-450c-a00c-73746511a5dc.jpg', content: 'Happy Birthday Chanduuu❤️' },
             { image: './image/realPhoto/mosaically.jpg', content: '' } // End cover
         ]
     };
