@@ -148,8 +148,9 @@
 
   /* Page-turn instruction */
   .page-instruction {
-      position: absolute;
-      top: 380px;
+      position: fixed;
+      bottom: 10%;
+      top: unset;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -765,7 +766,7 @@
 
       .page-instruction {
           top: unset;
-          bottom: 15%; 
+          bottom: 10%; 
       }
 
       .instruction-text {

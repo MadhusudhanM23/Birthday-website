@@ -358,7 +358,7 @@ function initializeDefaultSettings() {
             { image: './image/realPhoto/3838a56e-d719-4158-be50-b3571c38fa27.jpg', content: 'Wishing you the most wonderful birthday ever! 🎉' },
             { image: './image/realPhoto/3dd8e155-5f8e-407a-bc89-a531f89a736c.jpg', content: 'May all your dreams come true! ⭐' },
             { image: './image/realPhoto/47017a7e-1a4d-41a6-96ad-27c015fa6b71.jpg', content: 'You deserve all the happiness! 💕' },
-            { image: './image/realPhoto/4c66b58c-9862-450c-a00c-73746511a5dc.jpg', content: 'Have the best day TL! ❤️🎂' },
+            { image: './image/realPhoto/4c66b58c-9862-450c-a00c-73746511a5dc.jpg', content: 'Have the best day TL! 🥳🎂' },
             { image: './image/realPhoto/mosaically.jpg', content: '' } // End cover
         ]
     };

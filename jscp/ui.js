@@ -974,7 +974,7 @@ function showBook() {
                             <div class="instruction-text">turn the page</div>
                             <div class="instruction-arrow"></div>
                         `;
-                        bookContainer.appendChild(instruction);
+                        document.body.appendChild(instruction);
                     }
                     instruction.classList.add('active');
                 }, 2000);
