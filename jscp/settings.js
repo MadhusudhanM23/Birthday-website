@@ -15,13 +15,13 @@ let settings = {
     pages: [
         { image: './image/realPhoto/092f9d03-53ca-492a-b50d-ea017176db86.jpg', content: '' }, // Front cover
         { image: './image/realPhoto/1135c51b-b73a-4632-9a4a-2beea5a7ff78.jpg', content: 'Dear Chandan, you bring so much joy and happiness! 💕' },
-        { image: './image/realPhoto/16f27fd6-3256-4cd8-92c6-6ca09ce308d7.jpg', content: 'Your smile lights up every room you enter! ✨' },
+        { image: './image/realPhoto/16f27fd6-3256-4cd8-92c6-6ca09ce308d7.jpg', content: 'Happy Birthday! Wishing you happiness and success always ✨' },
         { image: './image/realPhoto/30ec64a9-c324-4ec5-b2b0-172bb0e4dadb.jpg', content: 'You are such an amazing and beautiful person! 🌸' },
         { image: './image/realPhoto/351ad04c-71b6-490a-b0dd-596e1f0933f0.jpg', content: 'Your kindness and warmth touch hearts! 💖' },
         { image: './image/realPhoto/3838a56e-d719-4158-be50-b3571c38fa27.jpg', content: 'Wishing you the most wonderful birthday ever! 🎉' },
         { image: './image/realPhoto/3dd8e155-5f8e-407a-bc89-a531f89a736c.jpg', content: 'May all your dreams come true! ⭐' },
         { image: './image/realPhoto/47017a7e-1a4d-41a6-96ad-27c015fa6b71.jpg', content: 'You deserve all the happiness! 🌈' },
-        { image: './image/realPhoto/4c66b58c-9862-450c-a00c-73746511a5dc.jpg', content: 'Love you so much! Have the best day! ❤️🎂' },
+        { image: './image/realPhoto/4c66b58c-9862-450c-a00c-73746511a5dc.jpg', content: 'Have the best day! ❤️🎂' },
         { image: './image/realPhoto/mosaically.jpg', content: '' } // End cover
     ],
     enableBook: true,
@@ -347,18 +347,18 @@ function initializeDefaultSettings() {
         gift: '', // No sticker/GIF
         enableBook: true,
         enableHeart: true,
-        isSave: false,  
+        isSave: false,
         colorTheme: 'royal',
         pages: [
             { image: './image/realPhoto/092f9d03-53ca-492a-b50d-ea017176db86.jpg', content: '' }, // Front cover
             { image: './image/realPhoto/1135c51b-b73a-4632-9a4a-2beea5a7ff78.jpg', content: 'Dear Chandan, you bring so much joy and happiness! 💕' },
-            { image: './image/realPhoto/16f27fd6-3256-4cd8-92c6-6ca09ce308d7.jpg', content: 'Your smile lights up every room you enter! ✨' },
+            { image: './image/realPhoto/16f27fd6-3256-4cd8-92c6-6ca09ce308d7.jpg', content: 'Happy Birthday! Wishing you happiness and success always! ✨' },
             { image: './image/realPhoto/30ec64a9-c324-4ec5-b2b0-172bb0e4dadb.jpg', content: 'You are such an amazing and beautiful person! 🌸' },
-            { image: './image/realPhoto/351ad04c-71b6-490a-b0dd-596e1f0933f0.jpg', content: 'Your kindness and warmth touch hearts! 💖' },
+            { image: './image/realPhoto/351ad04c-71b6-490a-b0dd-596e1f0933f0.jpg', content: 'Happy Birthday! Wishing you a great year ahead filled with success and good moments! 💖' },
             { image: './image/realPhoto/3838a56e-d719-4158-be50-b3571c38fa27.jpg', content: 'Wishing you the most wonderful birthday ever! 🎉' },
             { image: './image/realPhoto/3dd8e155-5f8e-407a-bc89-a531f89a736c.jpg', content: 'May all your dreams come true! ⭐' },
             { image: './image/realPhoto/47017a7e-1a4d-41a6-96ad-27c015fa6b71.jpg', content: 'You deserve all the happiness! 💕' },
-            { image: './image/realPhoto/4c66b58c-9862-450c-a00c-73746511a5dc.jpg', content: 'Love you so much! Have the best day! ❤️🎂' },
+            { image: './image/realPhoto/4c66b58c-9862-450c-a00c-73746511a5dc.jpg', content: 'Have the best day TL! ❤️🎂' },
             { image: './image/realPhoto/mosaically.jpg', content: '' } // End cover
         ]
     };
@@ -464,16 +464,16 @@ function populateModal() {
 
     // Sử dụng colorTheme đã lưu thay vì detect
     const currentTheme = settings.colorTheme || detectCurrentColorTheme();
-    
+
     // Thêm event listener cho các nút màu
     const colorButtons = document.querySelectorAll('.color-theme-btn');
     colorButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const theme = this.getAttribute('data-theme');
             handleColorThemeChange(theme);
         });
     });
-    
+
     // Khởi tạo với mẫu màu hiện tại
     handleColorThemeChange(currentTheme);
 
@@ -509,11 +509,11 @@ function populateModal() {
 
         // Tạo tiêu đề
         const title = document.createElement('h3');
-if (index === 0) {
-    title.textContent = t('pageTitleCover', {num: index + 1});
-} else {
-    title.textContent = t('pageTitle', {num: index + 1});
-}
+        if (index === 0) {
+            title.textContent = t('pageTitleCover', { num: index + 1 });
+        } else {
+            title.textContent = t('pageTitle', { num: index + 1 });
+        }
         pageConfig.appendChild(title);
 
         // Tạo nút đóng (chỉ hiển thị khi có thể xóa)
@@ -558,7 +558,7 @@ if (index === 0) {
             imagePreview.alt = `Ảnh trang ${index + 1}`;
         } else {
             // Hiển thị placeholder
-            const placeholderText = index === 0 ? t('coverPlaceholder') : t('pagePlaceholder', {num: index + 1});
+            const placeholderText = index === 0 ? t('coverPlaceholder') : t('pagePlaceholder', { num: index + 1 });
             imagePreview.style.cssText += `
                 display: flex;
                 justify-content: center;
@@ -571,7 +571,7 @@ if (index === 0) {
                 text-align: center;
             `;
             imagePreview.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI2YwZjBmMCIvPjx0ZXh0IHg9Ijc1IiB5PSI3NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+Q2jGsGEgY8OzIOS6o25oPC90ZXh0Pjwvc3ZnPg==';
-            imagePreview.alt = t('noImageAlt', {placeholder: placeholderText});
+            imagePreview.alt = t('noImageAlt', { placeholder: placeholderText });
         }
 
         pageConfig.appendChild(imagePreview);
@@ -620,7 +620,7 @@ if (index === 0) {
                     imagePreview.alt = `Ảnh hiện tại trang ${index + 1}`;
                 } else {
                     // Hiển thị placeholder
-                    const placeholderText = index === 0 ? t('coverPlaceholder') : t('pagePlaceholder', {num: index + 1});
+                    const placeholderText = index === 0 ? t('coverPlaceholder') : t('pagePlaceholder', { num: index + 1 });
                     imagePreview.style.cssText += `
                         display: flex;
                         justify-content: center;
@@ -633,18 +633,18 @@ if (index === 0) {
                         text-align: center;
                     `;
                     imagePreview.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI2YwZjBmMCIvPjx0ZXh0IHg9Ijc1IiB5PSI3NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+Q2jGsGEgY8OzIOS6o25oPC90ZXh0Pjwvc3ZnPg==';
-                    imagePreview.alt = t('noImageAlt', {placeholder: placeholderText});
+                    imagePreview.alt = t('noImageAlt', { placeholder: placeholderText });
                 }
             }
         });
 
         // Chỉ tạo textarea cho các trang lẻ từ trang 3 trở đi (index 2, 4, 6, 8...)
         if (index >= 2 && index % 2 === 0) {
-          
+
 
             const contentTextarea = document.createElement('textarea');
             contentTextarea.id = `pageContent${index}`;
-            contentTextarea.placeholder = t('contentPlaceholder', {num: index + 1});
+            contentTextarea.placeholder = t('contentPlaceholder', { num: index + 1 });
             contentTextarea.rows = 4;
             contentTextarea.value = page.content || '';
             pageConfig.appendChild(contentTextarea);
@@ -790,19 +790,19 @@ function handleColorThemeChange(selectedTheme) {
     const sequenceColorInput = document.getElementById('sequenceColor');
     const customColorSection = document.getElementById('customColorSection');
     const sequenceColorSection = document.getElementById('sequenceColorSection');
-    
+
     // Lưu theme được chọn vào settings
     settings.colorTheme = selectedTheme;
-    
+
     // Cập nhật trạng thái active của các nút
     const allButtons = document.querySelectorAll('.color-theme-btn');
     allButtons.forEach(btn => btn.classList.remove('active'));
-    
+
     const activeButton = document.querySelector(`[data-theme="${selectedTheme}"]`);
     if (activeButton) {
         activeButton.classList.add('active');
     }
-    
+
     // Hiển thị/ẩn phần tùy chỉnh màu
     if (selectedTheme === 'custom') {
         customColorSection.style.display = 'flex';
@@ -810,19 +810,19 @@ function handleColorThemeChange(selectedTheme) {
     } else {
         customColorSection.style.display = 'none';
         sequenceColorSection.style.display = 'none';
-        
+
         // Chỉ cập nhật màu nếu không phải custom
         const theme = colorThemes[selectedTheme];
         if (theme && matrixColor1Input && matrixColor2Input && sequenceColorInput) {
             matrixColor1Input.value = theme.matrixColor1;
             matrixColor2Input.value = theme.matrixColor2;
             sequenceColorInput.value = theme.sequenceColor;
-            
+
             // Cập nhật settings với màu mới
             settings.matrixColor1 = theme.matrixColor1;
             settings.matrixColor2 = theme.matrixColor2;
             settings.sequenceColor = theme.sequenceColor;
-            
+
             // Trigger change event để cập nhật preview nếu có
             matrixColor1Input.dispatchEvent(new Event('input'));
             matrixColor2Input.dispatchEvent(new Event('input'));
@@ -839,13 +839,13 @@ function addCustomColorListeners() {
     const matrixColor1Input = document.getElementById('matrixColor1');
     const matrixColor2Input = document.getElementById('matrixColor2');
     const sequenceColorInput = document.getElementById('sequenceColor');
-    
+
     if (matrixColor1Input) {
-        matrixColor1Input.addEventListener('input', function() {
+        matrixColor1Input.addEventListener('input', function () {
             // Chỉ cập nhật settings khi đang ở chế độ custom
             if (settings.colorTheme === 'custom') {
                 settings.matrixColor1 = this.value;
-                
+
                 // Cập nhật preview nếu có
                 const matrixColor1Preview = document.getElementById('matrixColor1Preview');
                 if (matrixColor1Preview) {
@@ -854,12 +854,12 @@ function addCustomColorListeners() {
             }
         });
     }
-    
+
     if (matrixColor2Input) {
-        matrixColor2Input.addEventListener('input', function() {
+        matrixColor2Input.addEventListener('input', function () {
             if (settings.colorTheme === 'custom') {
                 settings.matrixColor2 = this.value;
-                
+
                 const matrixColor2Preview = document.getElementById('matrixColor2Preview');
                 if (matrixColor2Preview) {
                     matrixColor2Preview.style.backgroundColor = this.value;
@@ -867,12 +867,12 @@ function addCustomColorListeners() {
             }
         });
     }
-    
+
     if (sequenceColorInput) {
-        sequenceColorInput.addEventListener('input', function() {
+        sequenceColorInput.addEventListener('input', function () {
             if (settings.colorTheme === 'custom') {
                 settings.sequenceColor = this.value;
-                
+
                 const sequenceColorPreview = document.getElementById('sequenceColorPreview');
                 if (sequenceColorPreview) {
                     sequenceColorPreview.style.backgroundColor = this.value;
@@ -888,26 +888,26 @@ function detectCurrentColorTheme() {
     if (settings.colorTheme) {
         return settings.colorTheme;
     }
-    
+
     const matrixColor1Input = document.getElementById('matrixColor1');
     const matrixColor2Input = document.getElementById('matrixColor2');
     const sequenceColorInput = document.getElementById('sequenceColor');
-    
+
     if (matrixColor1Input && matrixColor2Input && sequenceColorInput) {
         const currentMatrix1 = matrixColor1Input.value;
         const currentMatrix2 = matrixColor2Input.value;
         const currentSequence = sequenceColorInput.value;
-        
+
         // Tìm mẫu màu phù hợp nhất (bao gồm cả custom)
         for (const [themeKey, theme] of Object.entries(colorThemes)) {
-            if (theme.matrixColor1 === currentMatrix1 && 
-                theme.matrixColor2 === currentMatrix2 && 
+            if (theme.matrixColor1 === currentMatrix1 &&
+                theme.matrixColor2 === currentMatrix2 &&
                 theme.sequenceColor === currentSequence) {
                 return themeKey;
             }
         }
     }
-    
+
     // Mặc định trả về pink nếu không tìm thấy
     return 'pink';
 }
@@ -994,7 +994,7 @@ function updateExpireDateDisplay() {
     const isSaveCheckbox = document.getElementById('isSave');
     const expireDateElement = document.getElementById('expireDate');
     const expireContainer = expireDateElement?.parentElement;
-    
+
     if (isSaveCheckbox && expireDateElement && expireContainer) {
         if (isSaveCheckbox.checked) {
             expireDateElement.textContent = t('saveForever');
@@ -1036,7 +1036,7 @@ function createPages() {
                     this.src = createPlaceholderImage(placeholderText);
                 };
                 front.appendChild(frontImg);
-                
+
                 // Add text overlay if content exists
                 if (frontPageData.content) {
                     const textDiv = document.createElement('div');
@@ -1053,11 +1053,11 @@ function createPages() {
                 front.appendChild(textDiv);
             } else {
                 front.classList.add('empty-page');
-               front.textContent = t('emptyPage');
+                front.textContent = t('emptyPage');
             }
         } else {
             front.classList.add('empty-page');
-           front.textContent = t('emptyPage');
+            front.textContent = t('emptyPage');
         }
 
         const back = document.createElement('div');
@@ -1074,7 +1074,7 @@ function createPages() {
                     this.src = createPlaceholderImage(placeholderText);
                 };
                 back.appendChild(backImg);
-                
+
                 // Add text overlay if content exists
                 if (backPageData.content) {
                     const textDiv = document.createElement('div');
@@ -1098,7 +1098,7 @@ function createPages() {
             endImg.src = './image/theend.jpg';
             endImg.onerror = function () {
                 back.classList.add('empty-page');
-               back.textContent = t('endOfBook');
+                back.textContent = t('endOfBook');
             };
             back.appendChild(endImg);
         }
@@ -1122,7 +1122,7 @@ function createPages() {
     }
 
     photoUrls = pages.filter(page => page.image).map(page => page.image);
-    
+
     // ✅ FIX: Tính toán z-index cho tất cả pages sau khi tạo
     if (typeof calculatePageZIndexes === 'function') {
         calculatePageZIndexes();
@@ -1167,8 +1167,8 @@ document.addEventListener('DOMContentLoaded', function () {
 function createLoadingUI() {
     const loadingOverlay = document.createElement('div');
     loadingOverlay.id = 'loadingOverlay';
- 
-loadingOverlay.innerHTML = `
+
+    loadingOverlay.innerHTML = `
     <div class="loading-content">
         <div class="loading-spinner"></div>
         <h2>${t('loading')}</h2>
@@ -1287,11 +1287,11 @@ async function loadWebsiteFromServer() {
         pricingContainer.style.display = 'none';
     }
 
-//     // Ẩn nút chuyển ngôn ngữ ở đây
-const languageSwitchBtn = document.getElementById('langSwitchBtn');
-if (languageSwitchBtn) {
-    languageSwitchBtn.style.display = 'none';
-}
+    //     // Ẩn nút chuyển ngôn ngữ ở đây
+    const languageSwitchBtn = document.getElementById('langSwitchBtn');
+    if (languageSwitchBtn) {
+        languageSwitchBtn.style.display = 'none';
+    }
 
     // Hiển thị loading UI
     const loadingOverlay = createLoadingUI();
@@ -1364,14 +1364,14 @@ applySettingsButton.addEventListener('click', () => {
     // Kiểm tra enableBook trước
     const enableBookSelect = document.getElementById('enableBook');
     const isBookEnabled = enableBookSelect ? enableBookSelect.value === 'true' : false;
-    
+
     // Kiểm tra nếu sách được bật nhưng không có trang hoặc tất cả trang đều trống
     if (isBookEnabled) {
         if (settings.pages.length === 0) {
             alert('❌ Sách cần có trang!\n\nVui lòng thêm ít nhất 1 trang cho sách hoặc tắt tính năng sách.');
             return;
         }
-        
+
         // // Kiểm tra xem có ít nhất 1 trang có ảnh không
         // const hasValidPage = settings.pages.some(page => page.image && page.image.trim() !== '');
         // if (!hasValidPage) {
@@ -1379,12 +1379,12 @@ applySettingsButton.addEventListener('click', () => {
         //     return;
         // }
     }
-    
+
     // Kiểm tra logic trang trước khi áp dụng
     const totalPages = settings.pages.length;
 
     if (totalPages > 1 && totalPages % 2 === 0) {
-        alert(`❌ ${t('invalidPageStructure')}\n\n${t('currentPages', {total: totalPages})}\n${t('bookStructureGuide')}\n\n${t('pleaseAddOrRemovePage')}`);
+        alert(`❌ ${t('invalidPageStructure')}\n\n${t('currentPages', { total: totalPages })}\n${t('bookStructureGuide')}\n\n${t('pleaseAddOrRemovePage')}`);
 
         return;
     }
@@ -1398,7 +1398,7 @@ applySettingsButton.addEventListener('click', () => {
     settings.sequence = document.getElementById('sequenceText').value || 'HAPPY|BIRTHDAY|MY|CUTEE|LITTLE|SWARALI|❤';
     settings.sequenceColor = document.getElementById('sequenceColor').value;
     settings.gift = document.getElementById('giftImage').value;
-    
+
     // Lưu mẫu màu đã chọn
     const activeButton = document.querySelector('.color-theme-btn.active');
     if (activeButton) {
@@ -1408,7 +1408,7 @@ applySettingsButton.addEventListener('click', () => {
     settings.enableBook = document.getElementById('enableBook').value === 'true';
     settings.enableHeart = document.getElementById('enableHeart').value === 'true';
     settings.isSave = document.getElementById('isSave')?.checked || false;
-    
+
     // Cập nhật trạng thái global
     window.lastIsSaveState = settings.isSave;
 
@@ -1470,7 +1470,7 @@ function updateFullscreenBtnVisibility() {
         if (fullscreenBtn.hideTimeout) clearTimeout(fullscreenBtn.hideTimeout);
         fullscreenBtn.hideTimeout = setTimeout(() => {
             fullscreenBtn.style.display = 'none';
-        }, 2500);
+        }, 5000);
     } else if (fullscreenBtn) {
         fullscreenBtn.style.display = 'none';
         if (fullscreenBtn.hideTimeout) clearTimeout(fullscreenBtn.hideTimeout);

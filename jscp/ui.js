@@ -949,7 +949,7 @@ function showBook() {
 
         // ✅ FIX: Tính toán z-index cho tất cả pages
         calculatePageZIndexes();
-        
+
         // ✅ FIX: Thiết lập observer để theo dõi thay đổi cấu trúc book
         setupPageObserver();
 
@@ -962,7 +962,7 @@ function showBook() {
             requestAnimationFrame(() => {
                 book.style.opacity = '1';
                 book.style.transform = 'scale(1) translateY(0)';
-                
+
                 // Show instruction after a short delay
                 setTimeout(() => {
                     let instruction = document.getElementById('pageInstruction');
@@ -971,7 +971,7 @@ function showBook() {
                         instruction.id = 'pageInstruction';
                         instruction.className = 'page-instruction';
                         instruction.innerHTML = `
-                            <div class="instruction-text">turn the page or swipe left</div>
+                            <div class="instruction-text">turn the page</div>
                             <div class="instruction-arrow"></div>
                         `;
                         bookContainer.appendChild(instruction);
@@ -1208,19 +1208,35 @@ function startHeartEffect() {
     });
 }
 function showMusicallyImage() {
+    const container = document.createElement('div');
+    container.className = 'final-musically-container';
+
+    // Left text
+    const leftText = document.createElement('div');
+    leftText.className = 'final-text left-text';
+    leftText.innerHTML = 'Happy <br>Birthday';
+
+    // Middle image
     const photo = document.createElement('img');
-    // Using the mosaically image as requested
     photo.src = './image/realPhoto/mosaically.jpg';
     photo.className = 'final-musically-image';
-    photo.onerror = function() {
-        // Fallback to logo if musically image is not found
+    photo.onerror = function () {
         this.src = './image/logo.png';
     };
-    
-    document.body.appendChild(photo);
+
+    // Right text
+    const rightText = document.createElement('div');
+    rightText.className = 'final-text right-text';
+    rightText.innerHTML = 'Chanduuu...🎊🎂';
+
+    container.appendChild(leftText);
+    container.appendChild(photo);
+    container.appendChild(rightText);
+
+    document.body.appendChild(container);
 
     requestAnimationFrame(() => {
-        photo.classList.add('show');
+        container.classList.add('show');
     });
 }
 function checkBookFinished() {
@@ -1584,7 +1600,7 @@ function cleanup() {
     if (typewriterTimeout) {
         clearTimeout(typewriterTimeout);
     }
-    
+
     if (zIndexUpdateTimeout) {
         clearTimeout(zIndexUpdateTimeout);
     }
@@ -1599,7 +1615,7 @@ function cleanup() {
     // Reset counters
     heartPhotosCreated = 0;
     starsCreated = false;
-    
+
     // ✅ FIX: Reset z-index properties
     const book = document.getElementById('book');
     if (book) {
@@ -1633,36 +1649,36 @@ window.addEventListener('beforeunload', cleanup);
 let zIndexUpdateTimeout;
 
 function calculatePageZIndexes() {
-    
+
     const book = document.getElementById('book');
     if (!book) {
         console.warn('⚠️ [WARNING] Book element not found');
         return;
     }
-    
+
     const pages = book.querySelectorAll('.page');
     const totalPages = pages.length;
-    
-    
+
+
     if (totalPages === 0) {
         console.warn('⚠️ [WARNING] No pages found in book');
         return;
     }
-    
+
     pages.forEach((page, physicalIndex) => {
         const logicalPageIndex = physicalIndex * 2;
         const nextLogicalPageIndex = logicalPageIndex + 1;
-        
+
         // Tính toán z-index cho trang hiện tại
         const normalZIndex = totalPages - physicalIndex;
         const flippedZIndex = physicalIndex + 1;
-        
-        
+
+
         // Áp dụng z-index
         page.style.setProperty('--page-z-index', normalZIndex.toString());
         page.style.setProperty('--page-flipped-z-index', flippedZIndex.toString());
     });
-    
+
 }
 
 function updatePageZIndexes() {
@@ -1678,29 +1694,29 @@ function setupPageObserver() {
         console.warn('⚠️ [WARNING] Book element not found for observer setup');
         return;
     }
-    
+
     const observer = new MutationObserver((mutations) => {
         let shouldUpdate = false;
-        
+
         mutations.forEach((mutation) => {
             if (mutation.type === 'childList') {
                 shouldUpdate = true;
             }
         });
-        
+
         if (shouldUpdate) {
             updatePageZIndexes();
         }
     });
-    
+
     observer.observe(book, {
         childList: true,
         subtree: true
     });
-    
+
 }
 
-window.debugBookImages = function() {
+window.debugBookImages = function () {
     const allImages = document.querySelectorAll('.page img');
     allImages.forEach((img, index) => {
         const pageIndex = img.getAttribute('data-page-index');
